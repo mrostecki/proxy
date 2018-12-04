@@ -43,10 +43,8 @@ cc_configure()
 load("@envoy_api//bazel:repositories.bzl", "api_dependencies")
 api_dependencies()
 
-load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
-go_rules_dependencies()
-go_register_toolchains(go_version = GO_VERSION)
-
+load("@io_bazel_rules_go//go:def.bzl", "go_host_sdk")
+go_host_sdk("go_sdk")
 
 # Dependencies for Istio filters.
 # Cf. https://github.com/istio/proxy.
