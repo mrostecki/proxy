@@ -59,6 +59,10 @@ http_archive(
     url = "https://github.com/istio/proxy/archive/" + ISTIO_PROXY_SHA + ".zip",
     sha256 = ISTIO_PROXY_SHA256,
     strip_prefix = "proxy-" + ISTIO_PROXY_SHA,
+    patches = [
+        "//:istio-proxy-change-boringssl-headers-path.patch",
+        "//:istio-proxy-unbundle-dependencies.patch",
+    ],
 )
 
 load("@istio_proxy//:repositories.bzl", "mixerapi_dependencies")
