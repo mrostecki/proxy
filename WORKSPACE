@@ -17,6 +17,13 @@ http_archive(
     url = "https://github.com/envoyproxy/envoy/archive/" + ENVOY_SHA + ".zip",
     sha256 = ENVOY_SHA256,
     strip_prefix = "envoy-" + ENVOY_SHA,
+    patches = [
+        "//:envoy-proxy-link-third-party-libraries-dynamically.patch",
+        "//:envoy-proxy-unbundle-dependencies.patch",
+        "//:envoy-proxy-use-go-sdk-from-host.patch",
+        "//:envoy-proxy-change-boringssl-headers-path.patch",
+        "//:envoy-proxy-rate-limit-429-response-mapping-configurable.patch",
+    ],
 )
 
 #
