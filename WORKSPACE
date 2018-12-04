@@ -58,6 +58,15 @@ http_archive(
     url = "https://github.com/istio/proxy/archive/" + ISTIO_PROXY_SHA + ".zip",
     sha256 = ISTIO_PROXY_SHA256,
     strip_prefix = "proxy-" + ISTIO_PROXY_SHA,
+    patches = [
+        "//:istio-proxy-allow-to-distdir-all-dependencies.patch",
+        "//:istio-proxy-apply-envoy-patches.patch",
+        "//:istio-proxy-use-go-sdk-from-host.patch",
+        "//:istio-proxy-use-prebuilt-envoy-deps.patch",
+        "//:istio-proxy-change-boringssl-headers-path.patch",
+        "//:istio-proxy-unbundle-dependencies.patch",
+        "//:istio-proxy-dont-load-protobuf-repo.patch",
+    ],
 )
 
 load("@istio_proxy//:repositories.bzl", "mixerapi_dependencies")
