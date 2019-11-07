@@ -22,6 +22,9 @@ http_archive(
     patch_args = ["-p1"],
 )
 
+load("//bazel:api_binding.bzl", "envoy_api_binding")
+envoy_api_binding()
+
 #
 # Bazel does not do transitive dependencies, so we must basically
 # include all of Envoy's WORKSPACE file below, with the following
