@@ -4,6 +4,7 @@
 
 #include "absl/types/optional.h"
 
+#include "envoy/json/json_object.h"
 #include "envoy/stats/stats_macros.h"
 #include "envoy/server/filter_config.h"
 

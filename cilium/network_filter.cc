@@ -34,7 +34,7 @@ public:
   }
 
   Network::FilterFactoryCb
-  createFilterFactory(const Json::Object& json_config, FactoryContext& context) override {
+  createFilterFactory(const Json::Object& json_config, FactoryContext& context) {
     auto config = std::make_shared<Filter::CiliumL3::Config>(json_config, context);
     return [config](Network::FilterManager &filter_manager) mutable -> void {
       filter_manager.addFilter(std::make_shared<Filter::CiliumL3::Instance>(config));

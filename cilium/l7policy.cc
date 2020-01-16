@@ -22,7 +22,7 @@ class ConfigFactory
 public:
   Http::FilterFactoryCb
   createFilterFactory(const Json::Object& json, const std::string &,
-                      Server::Configuration::FactoryContext& context) override {
+                      Server::Configuration::FactoryContext& context) {
     auto config = std::make_shared<Cilium::Config>(json, context);
     return [config](
                Http::FilterChainFactoryCallbacks& callbacks) mutable -> void {
