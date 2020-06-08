@@ -39,10 +39,14 @@ api_cc_py_proto_library(
     visibility = ["//visibility:public"],
     deps = [
         "@envoy_api//envoy/annotations:pkg",
-        "@envoy_api//envoy/api/v2:pkg",
         "@envoy_api//envoy/api/v2/core:pkg",
-        "@envoy_api//envoy/api/v2/route:pkg",
+        "@envoy_api//envoy/config/core/v3:pkg",
+        "@envoy_api//envoy/config/route/v3:pkg",
+        "@envoy_api//envoy/service/discovery/v3:pkg",
+	"@envoy_api//envoy/type/matcher/v3:pkg",
+	"@envoy_api//envoy/type/v3:pkg",
     ],
+    has_services = 1,
 )
 
 api_cc_py_proto_library(
@@ -51,6 +55,7 @@ api_cc_py_proto_library(
     visibility = ["//visibility:public"],
     deps = [
         "@envoy_api//envoy/annotations:pkg",
-        "@envoy_api//envoy/api/v2:pkg",
+        "@envoy_api//envoy/service/discovery/v3:pkg",
     ],
+    has_services = 1,
 )
